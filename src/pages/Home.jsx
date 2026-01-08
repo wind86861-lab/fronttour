@@ -150,7 +150,7 @@ export default function Home() {
                   <div className="overflow-hidden position-relative">
                     <img
                       className="img-fluid"
-                      src={tour.images?.[0] ? (tour.images[0].startsWith('http') ? tour.images[0] : `http://localhost:5000${tour.images[0]}`) : `/assets/img/package-${(index % 3) + 1}.jpg`}
+                      src={tour.images?.[0] ? (tour.images[0].startsWith('http') ? tour.images[0] : (tour.images[0].startsWith('/') ? tour.images[0] : `http://localhost:5000${tour.images[0]}`)) : `/assets/img/package-${(index % 3) + 1}.jpg`}
                       alt={tour.title}
                       style={{ height: '250px', width: '100%', objectFit: 'cover' }}
                     />
@@ -390,7 +390,7 @@ export default function Home() {
                   <Link className="position-relative d-block h-100 overflow-hidden" to={`/tour/${popularTours[3]._id}`}>
                     <img
                       className="img-fluid position-absolute w-100 h-100"
-                      src={popularTours[3].images?.[0] ? (popularTours[3].images[0].startsWith('http') ? popularTours[3].images[0] : `http://localhost:5000${popularTours[3].images[0]}`) : "/assets/img/destination-4.jpg"}
+                      src={popularTours[3].images?.[0] ? (popularTours[3].images[0].startsWith('http') ? popularTours[3].images[0] : (popularTours[3].images[0].startsWith('/') ? popularTours[3].images[0] : `http://localhost:5000${popularTours[3].images[0]}`)) : "/assets/img/destination-4.jpg"}
                       alt={popularTours[3].toCity}
                       style={{ objectFit: "cover" }}
                     />

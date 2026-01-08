@@ -41,7 +41,10 @@ function Packages() {
   const getImageUrl = (tour, index) => {
     if (tour.images && tour.images.length > 0) {
       const img = tour.images[0];
-      return img.startsWith('http') ? img : `http://localhost:5000${img}`;
+      if (img.startsWith('http') || img.startsWith('/')) {
+        return img;
+      }
+      return `http://localhost:5000${img}`;
     }
     return defaultImages[index % 3];
   };

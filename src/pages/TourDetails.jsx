@@ -120,7 +120,7 @@ const TourDetails = () => {
     }
 
     const tourImage = tour.images?.[0]
-        ? (tour.images[0].startsWith('http') ? tour.images[0] : `http://localhost:5000${tour.images[0]}`)
+        ? (tour.images[0].startsWith('http') ? tour.images[0] : (tour.images[0].startsWith('/') ? tour.images[0] : `http://localhost:5000${tour.images[0]}`))
         : defaultImages[0];
     const itinerary = generateItinerary(tour);
     const highlights = generateHighlights(tour);
@@ -189,7 +189,7 @@ const TourDetails = () => {
                                             {tour.images.map((img, i) => (
                                                 <div key={i} className="col-4">
                                                     <img
-                                                        src={img.startsWith('http') ? img : `http://localhost:5000${img}`}
+                                                        src={img.startsWith('http') ? img : (img.startsWith('/') ? img : `http://localhost:5000${img}`)}
                                                         className="img-fluid rounded cursor-pointer border"
                                                         alt="Gallery"
                                                         style={{ height: '120px', width: '100%', objectFit: 'cover' }}

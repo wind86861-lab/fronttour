@@ -162,7 +162,7 @@ const ManageTours = () => {
                                                 <div className="d-flex align-items-center">
                                                     <div className="rounded overflow-hidden me-3" style={{ width: '50px', height: '50px' }}>
                                                         <img
-                                                            src={tour.images?.[0] ? (tour.images[0].startsWith('http') ? tour.images[0] : `http://localhost:5000${tour.images[0]}`) : '/assets/img/package-1.jpg'}
+                                                            src={tour.images?.[0] ? (tour.images[0].startsWith('http') ? tour.images[0] : (tour.images[0].startsWith('/') ? tour.images[0] : `http://localhost:5000${tour.images[0]}`)) : '/assets/img/package-1.jpg'}
                                                             alt=""
                                                             className="w-100 h-100"
                                                             style={{ objectFit: 'cover' }}
